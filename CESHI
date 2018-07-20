@@ -1,0 +1,19 @@
+from selenium import webdriver
+from time import sleep
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+dr=webdriver.Chrome()
+dr.get("https://www.baidu.com")
+sleep(3)
+d=dr.find_element_by_link_text('设置')
+ActionChains(dr).move_to_element(d).perform()
+sleep(2)
+g=dr.find_element_by_link_text('搜索设置')
+ActionChains(dr).move_to_element(g).perform()
+ActionChains(dr).double_click(g).perform()
+inputs=dr.find_elements_by_tag_name('input')
+sleep(2)
+a=dr.find_elements_by_name('s1')[1].click()
+sleep(2)
+b=dr.find_elements_by_name('SL')[2].click()
+
